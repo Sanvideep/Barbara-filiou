@@ -113,33 +113,6 @@ const heroSlides = [
   },
 ];
 
-const services = [
-  {
-    icon: Users,
-    title: "MASTERCLASSES",
-    badge: "450+ Delivered",
-    description: "Specific conditioning for stabilizing the muscles with apparatus, technical body elements, unique apparatus tricks, ADs & Risks, quality & artistry, individual corrections, QnA photos & videos with athletes.",
-  },
-  {
-    icon: Sparkles,
-    title: "PRIVATE COACHING",
-    badge: "16 Yrs Elite Floor",
-    description: "Online and Offline both.",
-  },
-  {
-    icon: Award,
-    title: "CHOREOGRAPHY",
-    badge: "Ballet & Dance Diplomas",
-    description: "New routines that blend technical precision with artistic storytelling.",
-  },
-  {
-    icon: Globe2,
-    title: "TRAINING CAMPS",
-    badge: "4 Fluent Languages",
-    description: "Multi-day trainings focusing on body and apparatus improvement and routines.",
-  },
-];
-
 const testimonials = [
   {
     id: "abla",
@@ -379,28 +352,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 2. SERVICES 4-COLUMN STRIP ─── */}
-      <section className="compact-services-strip" aria-label="Services offered">
-        <div className="compact-container">
-          <div className="services-4-grid">
-            {services.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div key={item.title} className={`service-strip-col service-hover-card anim-fade-up-${idx + 1}`}>
-                  <div className="service-icon-box">
-                    <IconComp size={22} />
-                  </div>
-                  <span className="service-badge-tag">{item.badge}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 3. VINTAGE DESK: ENVELOPE BOOKING LETTER & ROUGH PARCHMENT TESTIMONIALS ─── */}
+      {/* ─── 2. VINTAGE DESK: ENVELOPE BOOKING LETTER & ROUGH PARCHMENT TESTIMONIALS ─── */}
       <section ref={bookingSectionRef} className="vintage-desk-section" id="booking-inquiry">
         <div className="desk-vintage-texture" aria-hidden="true" />
 
