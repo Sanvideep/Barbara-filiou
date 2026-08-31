@@ -778,54 +778,87 @@ button {
 
 /* Success Letter State */
 .vintage-letter-success {
-  padding: 34px 20px;
+  min-height: 380px;
+  padding: 30px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background: transparent;
   border: none;
+  width: 100%;
+  animation: fadeIn 0.4s ease-out;
 }
 
 .vintage-wax-seal-success {
-  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 16px;
 }
 
 .success-wax-img {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+  transform: rotate(-3deg);
 }
 
 .vintage-letter-success h3 {
   font-family: var(--font-editorial);
-  font-size: 22px;
-  color: #4a1523;
-  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #4a0f1b;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 10px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 .vintage-letter-success p {
-  color: #5a4533;
-  font-size: 12.5px;
-  line-height: 1.5;
-  margin: 0 0 18px;
+  color: #5c2530;
+  font-size: 13.5px;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 24px;
+  text-align: center;
+  font-family: var(--font-body);
 }
 
 .vintage-reset-letter-btn {
-  padding: 9px 20px;
-  background: #4a1523;
-  color: #faeed7;
-  border: 1px solid #cba96b;
-  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #781726 0%, #4f0c18 100%);
+  color: #f7eedc;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 4px;
   font-family: var(--font-editorial);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(45, 8, 16, 0.5);
+  transition: all 0.25s var(--ease-out);
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
 }
 
 .vintage-reset-letter-btn:hover {
-  background: #691a2e;
+  background: linear-gradient(135deg, #911d30 0%, #61101f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(45, 8, 16, 0.65);
 }
 
 /* Envelope Front Pocket Sleeve */
