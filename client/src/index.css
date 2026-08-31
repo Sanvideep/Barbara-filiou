@@ -345,7 +345,7 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,10 +361,30 @@ button {
   object-position: center;
 }
 
+/* Seamless Bottom Gradient Blend into Desk Section */
+.hero-bottom-blend-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(36, 12, 20, 0.2) 25%,
+    rgba(36, 12, 20, 0.7) 65%,
+    rgba(36, 12, 20, 0.96) 90%,
+    #240c14 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Floating Hero Action Bar positioned directly on top of the heart */
 .hero-poster-actions {
   position: absolute;
-  bottom: 28px;
-  left: 50%;
+  bottom: 30px;
+  left: 40.5%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
@@ -378,12 +398,12 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 36px;
-  font-size: 13.5px;
+  padding: 13px 30px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   font-weight: 700;
   border-radius: 6px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 25px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.45);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -396,132 +416,27 @@ button {
   transform: translate(2px, -2px);
 }
 
-@media (max-width: 768px) {
-  .hero-poster-img {
-    object-fit: cover;
-    object-position: center;
-  }
+@media (max-width: 900px) {
   .hero-poster-actions {
-    bottom: 20px;
-    width: min(90vw, 360px);
+    left: 50%;
+    bottom: 22px;
+    width: min(90vw, 340px);
   }
   .hero-primary-cta {
     width: 100%;
-    padding: 13px 22px;
+    padding: 12px 20px;
     font-size: 12px;
   }
 }
 
-/* ─── 2. SERVICES 4-COLUMN STRIP (VINTAGE PARCHMENT & REDDISH INK) ─── */
-.compact-services-strip {
-  position: relative;
-  background-color: #f6efe0;
-  background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 245, 0.85) 0%, rgba(238, 224, 198, 0.85) 100%),
-    url('/images/parchment-rough-paper.jpg');
-  background-size: cover;
-  background-position: center;
-  border-top: 1.5px solid rgba(140, 30, 40, 0.4);
-  border-bottom: 1.5px solid rgba(140, 30, 40, 0.4);
-  padding: 28px 0;
-  box-shadow:
-    inset 0 0 40px rgba(120, 25, 35, 0.1),
-    0 6px 20px rgba(0, 0, 0, 0.3);
-  z-index: 2;
-}
-
-.services-4-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.service-strip-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px 16px;
-  border-right: 1px dashed rgba(140, 30, 40, 0.32);
-  background: transparent;
-  cursor: default;
-}
-
-.service-strip-col:last-child {
-  border-right: none;
-}
-
-.service-icon-box {
-  color: #8c1e28;
-  margin-bottom: 7px;
-  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), color 240ms ease;
-  filter: drop-shadow(0 1px 2px rgba(140, 30, 40, 0.25));
-}
-
-.service-badge-tag {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: .12em;
-  color: #73121d;
-  text-transform: uppercase;
-  background: rgba(140, 30, 40, 0.1);
-  border: 1px solid rgba(140, 30, 40, 0.35);
-  border-radius: 999px;
-  padding: 2.5px 9px;
-  margin-bottom: 7px;
-  transition: transform 240ms ease, background-color 240ms ease;
-}
-
-.service-strip-col h3 {
-  margin: 0 0 5px;
-  font-family: var(--font-editorial);
-  font-size: 14.5px;
-  font-weight: 800;
-  letter-spacing: .09em;
-  color: #4a0f1b;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.65);
-  transition: transform 240ms ease, color 240ms ease;
-  transform-origin: center center;
-}
-
-.service-strip-col p {
-  margin: 0;
-  color: #5c2530;
-  font-size: 11.8px;
-  line-height: 1.48;
-  font-family: var(--font-body);
-  transition: color 240ms ease;
-}
-
-/* Reddish ink hover dynamic effects */
-.service-strip-col:hover .service-icon-box {
-  transform: scale(1.22) translateY(-2px);
-  color: #b22234;
-}
-
-.service-strip-col:hover .service-badge-tag {
-  transform: scale(1.06);
-  background: rgba(140, 30, 40, 0.18);
-  color: #570a13;
-}
-
-.service-strip-col:hover h3 {
-  transform: scale(1.05);
-  color: #7a1626;
-}
-
-.service-strip-col:hover p {
-  color: #3b141c;
-}
-
-/* ─── 3. VINTAGE DESK: ENVELOPE BOOKING LETTER & ROUGH PARCHMENT TESTIMONIALS ─── */
+/* ─── 2. VINTAGE DESK: ENVELOPE BOOKING LETTER & ROUGH PARCHMENT TESTIMONIALS ─── */
 .vintage-desk-section {
   position: relative;
-  padding: 56px 0 68px;
+  margin-top: -2px;
+  padding: 50px 0 68px;
   background-color: #240c14;
   background-image:
-    radial-gradient(ellipse at 50% 30%, rgba(68, 20, 36, 0.45) 0%, rgba(20, 5, 10, 0.95) 100%),
+    radial-gradient(ellipse at 50% 10%, rgba(68, 20, 36, 0.5) 0%, rgba(20, 5, 10, 0.98) 100%),
     url('/images/vintage-burgundy-texture.png');
   background-size: cover;
   background-position: center;

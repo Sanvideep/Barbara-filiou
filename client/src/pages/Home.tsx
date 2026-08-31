@@ -336,9 +336,11 @@ export default function Home() {
               alt="Barbara Filiou - One of the most famous worldwide elite coaches"
               className="hero-poster-img"
             />
+            {/* Seamless Bottom Gradient Blend into Desk */}
+            <div className="hero-bottom-blend-gradient" aria-hidden="true" />
           </div>
 
-          {/* Floating / Bottom Hero Action Bar */}
+          {/* Floating Hero Action Bar positioned over the heart */}
           <div className="hero-poster-actions anim-fade-up-2">
             <button
               type="button"
