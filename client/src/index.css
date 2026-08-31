@@ -1,0 +1,1909 @@
+/*
+  Olympic Noir — Handwritten Letter & Vintage Polaroid Aesthetic for Barbara Filiou
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bad+Script&family=Beth+Ellen&family=Caveat:wght@400;500;600;700&family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Homemade+Apple&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Kristi&family=Marck+Script&family=Nothing+You+Could+Do&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prata&family=Reenie+Beanie&family=Sacramento&family=Syne:wght@600;700;800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --ink: #0c0e0d;
+  --ink-deep: #060807;
+  --wine: #380e19;
+  --wine-deep: #20050e;
+  --ivory: #f7f3eb;
+  --paper: #ffffff;
+  --gold: #cba96b;
+  --gold-rich: #d4af37;
+  --gold-pale: #faeed7;
+  --gold-deep: #a88143;
+  --chalk: #ece4d8;
+  --chalk-dim: rgba(236, 228, 216, 0.88);
+  --stone: #645f56;
+  --border-light: #e5dfd5;
+  --input-border: #dcd6cb;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --font-editorial: 'Cinzel', 'Playfair Display', serif;
+  --font-prata: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-handwritten: 'Marck Script', 'Bad Script', 'Caveat', cursive;
+  --font-signature: 'Alex Brush', 'Allura', 'Great Vibes', cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  background: #fbf9f5;
+  color: #171817;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a,
+button {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.compact-site-shell {
+  width: 100%;
+  overflow-x: hidden;
+  background: #fbf9f5;
+}
+
+.compact-container {
+  width: min(100% - 48px, 1220px);
+  margin: 0 auto;
+}
+
+/* ─── 1. VINTAGE HANDWRITTEN LETTER & POLAROID HERO SECTION (FULL SCREEN) ─── */
+.vintage-letter-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #1a040b;
+  color: var(--chalk);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-bg-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at center, transparent 40%, rgba(10, 1, 5, 0.4) 85%, rgba(6, 1, 3, 0.7) 100%),
+    linear-gradient(180deg, rgba(14, 2, 7, 0.3) 0%, transparent 20%, transparent 80%, rgba(14, 2, 7, 0.5) 100%);
+  z-index: 3;
+}
+
+.letter-hero-container {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 64px, 1220px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Column: Handwritten Letter Elements */
+.letter-left-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.letter-signature-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.letter-name-signature {
+  margin: 0;
+  font-family: var(--font-signature), cursive;
+  font-size: clamp(68px, 8vw, 112px);
+  font-weight: 400;
+  line-height: 0.88;
+  color: #ebe3d7;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), 0 0 2px rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.letter-name-swoosh {
+  width: min(100%, 360px);
+  height: 20px;
+  margin-top: -6px;
+  opacity: 0.75;
+}
+
+.letter-subtitle-wrap {
+  margin: 8px 0 20px;
+}
+
+.letter-subtitle {
+  margin: 0;
+  font-family: var(--font-handwritten), cursive;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 400;
+  color: #dfd7cb;
+  line-height: 1.25;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.letter-sub-divider {
+  width: 290px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(223, 215, 203, 0.55) 0%, rgba(223, 215, 203, 0.15) 75%, transparent 100%);
+  margin-top: 10px;
+}
+
+/* Handwritten Bullets */
+.letter-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.letter-bullet-item {
+  font-family: var(--font-handwritten), cursive;
+  font-size: clamp(22px, 2.3vw, 29px);
+  color: #dfd7cb;
+  line-height: 1.25;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dash-bullet {
+  font-family: var(--font-handwritten), cursive;
+  font-size: 28px;
+  color: rgba(223, 215, 203, 0.85);
+  line-height: 1;
+}
+
+.handwritten-underline {
+  text-decoration: underline;
+  text-decoration-color: rgba(223, 215, 203, 0.7);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+.letter-heart-row {
+  margin: 6px 0 24px 50px;
+}
+
+.letter-heart {
+  font-family: var(--font-handwritten), cursive;
+  font-size: 44px;
+  line-height: 1;
+  color: #dfd7cb;
+  opacity: 0.9;
+  display: inline-block;
+  transform: rotate(-6deg);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* Action button in vintage gold foil aesthetic */
+.letter-action-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.vintage-booking-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #dfbe75 0%, #c49c56 50%, #a47b36 100%);
+  color: #17040a;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(212, 175, 55, 0.25);
+  transition: all 220ms ease;
+}
+
+.vintage-booking-btn:hover {
+  background: linear-gradient(135deg, #faeed7 0%, #dfbe75 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 24px rgba(212, 175, 55, 0.45);
+}
+
+.letter-direct-note {
+  font-size: 11px;
+  font-family: var(--font-body);
+  color: rgba(238, 231, 221, 0.72);
+  letter-spacing: 0.04em;
+}
+
+/* Right Column: Taped Diagonal Crumpled Kraft Paper Card */
+.letter-right-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.polaroid-tape-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  transform: rotate(5.5deg);
+  transition: transform 340ms var(--ease-out), filter 340ms ease;
+  filter: drop-shadow(0 26px 55px rgba(0, 0, 0, 0.85)) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+}
+
+.polaroid-tape-card:hover {
+  transform: rotate(3deg) translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95)) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.7));
+}
+
+/* Authentic Kraft Washi Tape */
+.washi-tape-strip {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 130px;
+  height: 32px;
+  background: rgba(186, 148, 108, 0.88);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(125, 88, 52, 0.22) 4px, rgba(125, 88, 52, 0.22) 8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  border-left: 2px dashed rgba(115, 78, 45, 0.6);
+  border-right: 2px dashed rgba(115, 78, 45, 0.6);
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.kraft-frame-matting {
+  position: relative;
+  background-color: #d8c8b4;
+  background-image: url('/images/crumpled-paper-frame.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 16px 16px 22px;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 16px rgba(100, 70, 40, 0.35),
+    0 4px 14px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(190, 160, 130, 0.6);
+}
+
+.kraft-photo-wrapper {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.65),
+    inset 0 0 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  background: #0f1211;
+}
+
+.kraft-inner-photo-img {
+  width: 100%;
+  aspect-ratio: 4 / 5.4;
+  object-fit: cover;
+  object-position: 50% 25%;
+  display: block;
+  filter: grayscale(100%) contrast(1.15) brightness(0.95);
+}
+
+.hero-full-card-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-poster-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a040b;
+}
+
+.hero-poster-img {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-poster-actions {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.hero-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  font-size: 13.5px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 25px rgba(212, 175, 55, 0.4);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero-primary-cta .cta-icon {
+  transition: transform 0.25s ease;
+}
+
+.hero-primary-cta:hover .cta-icon {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 768px) {
+  .hero-poster-img {
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-poster-actions {
+    bottom: 20px;
+    width: min(90vw, 360px);
+  }
+  .hero-primary-cta {
+    width: 100%;
+    padding: 13px 22px;
+    font-size: 12px;
+  }
+}
+
+/* ─── 2. SERVICES 4-COLUMN STRIP (VINTAGE PARCHMENT & REDDISH INK) ─── */
+.compact-services-strip {
+  position: relative;
+  background-color: #f6efe0;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 245, 0.85) 0%, rgba(238, 224, 198, 0.85) 100%),
+    url('/images/parchment-rough-paper.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 1.5px solid rgba(140, 30, 40, 0.4);
+  border-bottom: 1.5px solid rgba(140, 30, 40, 0.4);
+  padding: 28px 0;
+  box-shadow:
+    inset 0 0 40px rgba(120, 25, 35, 0.1),
+    0 6px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.services-4-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service-strip-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 16px;
+  border-right: 1px dashed rgba(140, 30, 40, 0.32);
+  background: transparent;
+  cursor: default;
+}
+
+.service-strip-col:last-child {
+  border-right: none;
+}
+
+.service-icon-box {
+  color: #8c1e28;
+  margin-bottom: 7px;
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), color 240ms ease;
+  filter: drop-shadow(0 1px 2px rgba(140, 30, 40, 0.25));
+}
+
+.service-badge-tag {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: #73121d;
+  text-transform: uppercase;
+  background: rgba(140, 30, 40, 0.1);
+  border: 1px solid rgba(140, 30, 40, 0.35);
+  border-radius: 999px;
+  padding: 2.5px 9px;
+  margin-bottom: 7px;
+  transition: transform 240ms ease, background-color 240ms ease;
+}
+
+.service-strip-col h3 {
+  margin: 0 0 5px;
+  font-family: var(--font-editorial);
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  color: #4a0f1b;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.65);
+  transition: transform 240ms ease, color 240ms ease;
+  transform-origin: center center;
+}
+
+.service-strip-col p {
+  margin: 0;
+  color: #5c2530;
+  font-size: 11.8px;
+  line-height: 1.48;
+  font-family: var(--font-body);
+  transition: color 240ms ease;
+}
+
+/* Reddish ink hover dynamic effects */
+.service-strip-col:hover .service-icon-box {
+  transform: scale(1.22) translateY(-2px);
+  color: #b22234;
+}
+
+.service-strip-col:hover .service-badge-tag {
+  transform: scale(1.06);
+  background: rgba(140, 30, 40, 0.18);
+  color: #570a13;
+}
+
+.service-strip-col:hover h3 {
+  transform: scale(1.05);
+  color: #7a1626;
+}
+
+.service-strip-col:hover p {
+  color: #3b141c;
+}
+
+/* ─── 3. VINTAGE DESK: ENVELOPE BOOKING LETTER & ROUGH PARCHMENT TESTIMONIALS ─── */
+.vintage-desk-section {
+  position: relative;
+  padding: 56px 0 68px;
+  background-color: #240c14;
+  background-image:
+    radial-gradient(ellipse at 50% 30%, rgba(68, 20, 36, 0.45) 0%, rgba(20, 5, 10, 0.95) 100%),
+    url('/images/vintage-burgundy-texture.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--chalk);
+  overflow: hidden;
+}
+
+.desk-vintage-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0.5) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(16, 3, 8, 0.7) 0%, transparent 15%, transparent 85%, rgba(16, 3, 8, 0.8) 100%);
+  z-index: 1;
+}
+
+.vintage-desk-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 48px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.vintage-title-wrap {
+  margin-bottom: 22px;
+}
+
+.vintage-kicker-tag {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: #dfbe75;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.vintage-title-wrap h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #f7f2ea;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.vintage-title-wrap p {
+  margin: 0;
+  color: rgba(238, 228, 216, 0.75);
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+/* ─── Vintage Envelope & Sliding Letter System ─── */
+.envelope-desk-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.vintage-envelope-package {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  margin: 12px 0 0;
+  perspective: 1200px;
+}
+
+/* Envelope Back Lining */
+.envelope-back-lining {
+  position: absolute;
+  top: 8px;
+  left: 2%;
+  right: 2%;
+  bottom: 0;
+  background: #c3ad8e;
+  background-image: 
+    linear-gradient(135deg, rgba(200, 175, 140, 0.95), rgba(150, 120, 85, 0.95)),
+    url('/images/crumpled-paper-frame.jpg');
+  background-size: cover;
+  border-radius: 6px;
+  z-index: 1;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(160, 130, 95, 0.6);
+}
+
+/* The Sliding Parchment Letter / Sheet */
+.parchment-letter-sheet {
+  position: relative;
+  z-index: 3;
+  background: #fbf7ee;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.95) 0%, rgba(244, 233, 210, 0.7) 80%, rgba(230, 212, 180, 0.9) 100%),
+    url('/images/crumpled-paper-frame.jpg');
+  background-size: cover;
+  border-radius: 4px;
+  padding: 28px 30px 48px;
+  color: #2b1e15;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 0 40px rgba(180, 140, 90, 0.18);
+  border: 1px solid rgba(190, 160, 120, 0.6);
+  transform: translateY(24px) scale(0.985);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s ease;
+}
+
+/* Scroll Triggered Elevation - Letter slides up out of envelope! */
+.vintage-envelope-package.letter-drawn-out .parchment-letter-sheet {
+  transform: translateY(-16px) scale(1);
+  box-shadow:
+    0 30px 65px -10px rgba(0, 0, 0, 0.7),
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 0 50px rgba(180, 140, 90, 0.22);
+}
+
+/* Letterhead */
+.letterhead-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.letterhead-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.letterhead-title {
+  font-family: var(--font-signature), 'Alex Brush', 'Great Vibes', 'Allura', cursive;
+  font-size: clamp(38px, 4.5vw, 52px);
+  font-weight: 400;
+  color: #4a0d1b;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  display: inline-block;
+  margin-bottom: 3px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+  filter: drop-shadow(0 1px 2px rgba(120, 20, 30, 0.15));
+}
+
+.letterhead-subtitle {
+  font-family: var(--font-editorial);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #7d5c38;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.letterhead-stamp-side {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vintage-airmail-postage-stamp {
+  border: 1.5px dashed #a07850;
+  padding: 4px 8px;
+  background: #f0e6d2;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stamp-top-txt {
+  display: block;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #8c1e28;
+}
+
+.stamp-flag-txt {
+  display: block;
+  font-size: 7px;
+  font-weight: 700;
+  color: #4a3622;
+}
+
+.vintage-cancel-stamp {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(140, 30, 40, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  font-weight: 800;
+  color: rgba(140, 30, 40, 0.7);
+  transform: rotate(-12deg);
+  letter-spacing: 0.05em;
+  box-shadow: inset 0 0 4px rgba(140, 30, 40, 0.15);
+}
+
+.letter-deckled-rule {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(140, 30, 40, 0.6) 0%, rgba(180, 140, 90, 0.4) 60%, transparent 100%);
+  margin-bottom: 18px;
+}
+
+/* Vintage Parchment Form Inputs */
+.vintage-parchment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vintage-field-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.vintage-field-label {
+  font-family: var(--font-editorial);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #5a3e26;
+  text-transform: uppercase;
+}
+
+.vintage-ruled-input,
+.vintage-ruled-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(180, 150, 115, 0.6);
+  border-bottom: 2px solid #8c6a45;
+  border-radius: 2px;
+  padding: 8px 10px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: #24140b;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.vintage-ruled-input {
+  height: 38px;
+}
+
+.vintage-ruled-textarea {
+  resize: vertical;
+  min-height: 64px;
+  line-height: 1.45;
+}
+
+.vintage-ruled-input:focus,
+.vintage-ruled-textarea:focus {
+  background: #ffffff;
+  border-color: #7b1828;
+  border-bottom-color: #7b1828;
+  box-shadow: 0 0 0 2px rgba(123, 24, 40, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.vintage-ruled-input::placeholder,
+.vintage-ruled-textarea::placeholder {
+  color: #9c8570;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.letter-action-footer {
+  margin-top: 6px;
+}
+
+.vintage-wax-submit-btn {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #781726 0%, #4f0c18 100%);
+  color: #f7eedc;
+  border: 1px solid rgba(220, 180, 120, 0.4);
+  border-radius: 4px;
+  font-family: var(--font-editorial);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow:
+    0 8px 22px rgba(45, 8, 16, 0.6),
+    inset 0 1px 1px rgba(255, 230, 190, 0.3);
+  transition: all 0.25s var(--ease-out);
+}
+
+.vintage-wax-submit-btn:hover {
+  background: linear-gradient(135deg, #911d30 0%, #61101f 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(45, 8, 16, 0.75),
+    0 0 20px rgba(184, 134, 11, 0.3),
+    inset 0 1px 1px rgba(255, 230, 190, 0.4);
+}
+
+.vintage-wax-submit-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.submit-wax-seal-img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.dispatch-arrow {
+  transition: transform 0.25s ease;
+}
+
+.vintage-wax-submit-btn:hover .dispatch-arrow {
+  transform: translate(2px, -2px);
+}
+
+.vintage-form-disclaimer {
+  margin: 6px 0 0;
+  font-size: 10.5px;
+  font-style: italic;
+  color: #7d654f;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Success Letter State */
+.vintage-letter-success {
+  padding: 34px 20px;
+  text-align: center;
+  background: transparent;
+  border: none;
+}
+
+.vintage-wax-seal-success {
+  margin-bottom: 12px;
+}
+
+.success-wax-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+}
+
+.vintage-letter-success h3 {
+  font-family: var(--font-editorial);
+  font-size: 22px;
+  color: #4a1523;
+  margin: 0 0 8px;
+}
+
+.vintage-letter-success p {
+  color: #5a4533;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.vintage-reset-letter-btn {
+  padding: 9px 20px;
+  background: #4a1523;
+  color: #faeed7;
+  border: 1px solid #cba96b;
+  border-radius: 3px;
+  font-family: var(--font-editorial);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vintage-reset-letter-btn:hover {
+  background: #691a2e;
+}
+
+/* Envelope Front Pocket Sleeve */
+.envelope-pocket-front {
+  position: absolute;
+  bottom: -18px;
+  left: -14px;
+  right: -14px;
+  height: 124px;
+  z-index: 5;
+  pointer-events: none;
+  background: #cbb493;
+  background-image: 
+    linear-gradient(0deg, rgba(160, 125, 85, 0.97) 0%, rgba(205, 175, 135, 0.95) 100%),
+    url('/images/crumpled-paper-frame.jpg');
+  background-size: cover;
+  border-radius: 0 0 6px 6px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    inset 0 2px 8px rgba(255, 255, 255, 0.35),
+    inset 0 -6px 14px rgba(70, 40, 15, 0.45);
+  border: 1px solid rgba(140, 105, 65, 0.85);
+  border-top: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Diagonal Envelope V-Folds to make it unmistakably an envelope */
+.envelope-v-fold-left {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.12) 0%, rgba(100, 65, 30, 0.25) 100%);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  pointer-events: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.envelope-v-fold-right {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(-150deg, rgba(255, 255, 255, 0.12) 0%, rgba(100, 65, 30, 0.25) 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  pointer-events: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Airmail Chevron Trim */
+.airmail-chevron-strip {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #b22222 0px,
+    #b22222 10px,
+    #fbf9f5 10px,
+    #fbf9f5 20px,
+    #1e3f7a 20px,
+    #1e3f7a 30px,
+    #fbf9f5 30px,
+    #fbf9f5 40px
+  );
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.envelope-pocket-details {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px 14px;
+}
+
+.envelope-recipient-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipient-label {
+  font-family: var(--font-editorial);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #781520;
+}
+
+.recipient-name {
+  font-family: var(--font-signature), 'Alex Brush', cursive;
+  font-size: 26px;
+  font-weight: 500;
+  color: #3b0d17;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.recipient-role {
+  font-size: 9px;
+  font-weight: 600;
+  color: #523722;
+  line-height: 1.2;
+}
+
+.recipient-tag {
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #785233;
+  margin-top: 2px;
+}
+
+.envelope-wax-badge {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+}
+
+.pocket-wax-seal-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotate(4deg);
+}
+
+/* ─── Testimonials on Rough Old Paper in Background ─── */
+.testimonials-parchment-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.rough-parchment-board {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 22px 20px 20px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    inset 0 0 60px rgba(60, 35, 15, 0.45);
+  border: 1px solid rgba(180, 140, 95, 0.5);
+  background-color: #d6c09e;
+}
+
+.rough-paper-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.96;
+  filter: contrast(1.08) brightness(0.94);
+  z-index: 1;
+}
+
+.rough-paper-deckle-edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at center, transparent 40%, rgba(85, 45, 15, 0.35) 85%, rgba(50, 25, 8, 0.6) 100%),
+    linear-gradient(180deg, rgba(80, 40, 15, 0.3) 0%, transparent 15%, transparent 85%, rgba(60, 30, 10, 0.45) 100%);
+  box-shadow: inset 0 0 45px rgba(55, 30, 10, 0.6);
+  z-index: 2;
+}
+
+.parchment-pin-header {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px dashed rgba(110, 75, 40, 0.45);
+}
+
+.brass-paperclip {
+  width: 16px;
+  height: 38px;
+  border: 3px solid #b8934a;
+  border-radius: 999px;
+  transform: rotate(-15deg);
+  box-shadow: 
+    2px 4px 8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 2px rgba(255, 235, 170, 0.8);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.parchment-archive-label {
+  font-family: var(--font-editorial);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #4a2f18;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 3px 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(130, 90, 50, 0.3);
+}
+
+.vintage-parchment-marquee {
+  position: relative;
+  z-index: 3;
+  height: 410px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.testimonials-marquee-track {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: marquee-continuous-vertical 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-continuous-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.rough-paper-testimonial-card {
+  position: relative;
+  background: rgba(254, 250, 240, 0.92);
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95), rgba(244, 234, 212, 0.85));
+  border: 1px solid rgba(185, 150, 105, 0.6);
+  padding: 16px 18px;
+  border-radius: 3px;
+  box-shadow:
+    0 6px 16px rgba(45, 25, 10, 0.25),
+    0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.rough-paper-testimonial-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: #8c2635;
+  box-shadow:
+    0 10px 24px rgba(45, 25, 10, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Washi Tape Accent on each note */
+.card-washi-tape {
+  position: absolute;
+  top: -7px;
+  right: 24px;
+  width: 55px;
+  height: 14px;
+  background: rgba(210, 180, 140, 0.8);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(140, 100, 60, 0.2) 3px, rgba(140, 100, 60, 0.2) 6px);
+  transform: rotate(2deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  border-left: 1px dashed rgba(120, 80, 40, 0.5);
+  border-right: 1px dashed rgba(120, 80, 40, 0.5);
+}
+
+.vintage-testi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.vintage-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vintage-avatar-frame {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1.5px solid #8c6a45;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: #1a080d;
+}
+
+.vintage-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.08) sepia(0.18);
+}
+
+.vintage-author-name {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-weight: 700;
+  color: #3b1922;
+  line-height: 1.2;
+}
+
+.vintage-author-role {
+  display: block;
+  font-size: 10.5px;
+  color: #6d543f;
+  line-height: 1.2;
+}
+
+.vintage-location-stamp {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #8c2635;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.vintage-testi-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.vintage-testi-quote {
+  margin: 0;
+  color: #2b1f16;
+  font-family: var(--font-prata);
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 960px) {
+  .vintage-desk-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .vintage-envelope-package {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .vintage-desk-section {
+    padding: 38px 0 48px;
+  }
+  .parchment-letter-sheet {
+    padding: 20px 18px 36px;
+  }
+  .letterhead-title {
+    font-size: 28px;
+  }
+  .vintage-parchment-marquee {
+    height: 330px;
+  }
+  .envelope-pocket-front {
+    height: 85px;
+    bottom: -10px;
+  }
+  .pocket-wax-seal-img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ─── 4. MASTERCLASS PHOTOS & KEY NUMBERS (VINTAGE PARCHMENT DOSSIER) ─── */
+.compact-masterclass-gallery {
+  position: relative;
+  padding: 38px 0 54px;
+  background-color: #f6efe0;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 245, 0.88) 0%, rgba(238, 224, 198, 0.88) 100%),
+    url('/images/parchment-rough-paper.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 1.5px solid rgba(140, 30, 40, 0.4);
+  border-bottom: 1.5px solid rgba(140, 30, 40, 0.4);
+  box-shadow:
+    inset 0 0 50px rgba(120, 25, 35, 0.12),
+    0 6px 22px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.gallery-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed rgba(140, 30, 40, 0.28);
+}
+
+.gallery-kicker {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: #73121d;
+  text-transform: uppercase;
+  background: rgba(140, 30, 40, 0.1);
+  border: 1px solid rgba(140, 30, 40, 0.32);
+  border-radius: 999px;
+  padding: 2.5px 9px;
+  margin-bottom: 5px;
+}
+
+.gallery-title-bar h2 {
+  margin: 2px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #4a0f1b;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.65);
+}
+
+.gallery-title-bar p {
+  margin: 0;
+  color: #5c2530;
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.compact-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.compact-stat-box {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 12px 12px;
+  background: rgba(255, 252, 244, 0.9);
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95), rgba(246, 236, 216, 0.85));
+  border: 1px solid rgba(185, 150, 105, 0.65);
+  border-top: 3px solid #8c1e28;
+  border-radius: 3px;
+  box-shadow:
+    0 4px 12px rgba(60, 25, 10, 0.14),
+    inset 0 0 14px rgba(200, 160, 110, 0.15);
+  transition: transform 220ms var(--ease-spring), box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.compact-stat-box:hover {
+  transform: translateY(-4px);
+  border-top-color: #b22234;
+  border-color: #8c1e28;
+  box-shadow: 0 10px 24px rgba(60, 25, 10, 0.28);
+}
+
+.stat-number {
+  font-family: var(--font-editorial);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+  color: #4a0f1b;
+  margin-bottom: 5px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.stat-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #73121d;
+  line-height: 1.2;
+}
+
+.stat-sub {
+  font-size: 8.5px;
+  color: #6b4d34;
+  font-weight: 500;
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+.compact-gallery-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.compact-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+  background: #fdfbf7;
+  border: 1.5px solid rgba(185, 150, 105, 0.7);
+  box-shadow:
+    0 6px 16px rgba(50, 20, 10, 0.2),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.compact-photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #8c1e28;
+  box-shadow: 0 12px 28px rgba(50, 20, 10, 0.32);
+}
+
+.compact-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease, filter 400ms ease;
+  filter: contrast(1.06) saturate(0.92) sepia(0.06);
+}
+
+.compact-photo-card:hover img {
+  transform: scale(1.06);
+  filter: contrast(1.08) saturate(1.05);
+}
+
+.photo-card-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 20px 8px 6px;
+  background: linear-gradient(0deg, rgba(40, 10, 18, 0.95) 0%, rgba(40, 10, 18, 0.65) 65%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  z-index: 2;
+}
+
+.photo-card-caption strong {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #f7eedc;
+}
+
+.photo-card-caption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #dfbe75;
+  font-size: 8.5px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ─── 5. VINTAGE OLYMPIC FOOTER & DIRECT DISPATCH ─── */
+.compact-bottom-banner {
+  position: relative;
+  background-color: #1e070e;
+  background-image:
+    radial-gradient(ellipse at 50% 30%, rgba(72, 18, 36, 0.55) 0%, rgba(14, 2, 7, 0.98) 100%),
+    url('/images/vintage-burgundy-texture.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--chalk);
+  padding: 44px 0 24px;
+  border-top: 2px solid rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.bottom-banner-grid {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 290px;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Left: Taped Vintage Polaroid Frame */
+.bottom-polaroid-frame {
+  position: relative;
+  background: #fbf7ee;
+  padding: 8px 8px 18px;
+  border-radius: 3px;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: rotate(-3deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid rgba(190, 160, 120, 0.5);
+}
+
+.bottom-polaroid-frame:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.03);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.85);
+}
+
+.bottom-washi-tape {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 50px;
+  height: 16px;
+  background: rgba(205, 170, 130, 0.85);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(130, 90, 50, 0.2) 3px, rgba(130, 90, 50, 0.2) 6px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-left: 1px dashed rgba(120, 80, 40, 0.5);
+  border-right: 1px dashed rgba(120, 80, 40, 0.5);
+  z-index: 5;
+}
+
+.bottom-polaroid-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-visual-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 2px;
+  filter: contrast(1.08) saturate(0.95);
+}
+
+.bottom-polaroid-caption {
+  font-family: var(--font-handwritten), cursive;
+  font-size: 13px;
+  color: #3b1922;
+  margin-top: 6px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* Center Copy & Manifesto */
+.bottom-center-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bottom-kicker {
+  color: #dfbe75;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.bottom-center-copy h2 {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.22;
+  font-weight: 800;
+  letter-spacing: .05em;
+  color: #f7f1e6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.bottom-signature {
+  font-family: var(--font-signature), 'Alex Brush', cursive;
+  font-size: 38px;
+  color: #faeed7;
+  margin-top: 1px;
+  text-shadow: 0 2px 12px rgba(212, 175, 55, 0.4);
+  line-height: 1;
+}
+
+.bottom-bio-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 6px;
+}
+
+.bio-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  background: rgba(45, 10, 20, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #f0e2cc;
+  text-transform: uppercase;
+}
+
+/* Right: Gold Reservation Box */
+.bottom-right-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.booking-avail-box {
+  width: 100%;
+  background: rgba(36, 10, 18, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  padding: 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 235, 190, 0.2);
+}
+
+.avail-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avail-seal-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfbe75;
+}
+
+.avail-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.avail-text strong {
+  font-family: var(--font-editorial);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: #f7eedc;
+  text-transform: uppercase;
+}
+
+.avail-text span {
+  font-size: 9px;
+  color: #dfbe75;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.avail-sub-note {
+  margin: 0;
+  font-size: 10px;
+  color: rgba(240, 226, 204, 0.7);
+  line-height: 1.35;
+  font-family: var(--font-body);
+}
+
+.full-btn {
+  width: 100%;
+}
+
+/* Bottom Legal & Laurel Bar */
+.bottom-legal-bar {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+  color: rgba(240, 226, 204, 0.55);
+  letter-spacing: 0.04em;
+}
+
+.bottom-laurel-emblem {
+  font-family: var(--font-editorial);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #dfbe75;
+  text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+  .bottom-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+  .bottom-polaroid-frame {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  .bottom-bio-badges {
+    justify-content: center;
+  }
+  .bottom-legal-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ─── ANIMATIONS & MICRO-INTERACTIONS ─── */
+.anim-fade-in {
+  animation: fadeIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-slide-up {
+  animation: slideUp 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-1 {
+  animation: slideUp 800ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-2 {
+  animation: slideUp 800ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-3 {
+  animation: slideUp 800ms 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-4 {
+  animation: slideUp 800ms 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-5 {
+  animation: slideUp 800ms 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-fade-up-6 {
+  animation: slideUp 800ms 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-2 {
+  animation-delay: 250ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Button Shimmer Glow Effect */
+.glow-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.glow-shimmer-btn:hover::after {
+  left: 140%;
+  transition: left 750ms ease-in-out;
+}
+
+/* Form Input Focus Animation */
+.dual-form-grid input,
+.dual-form-grid textarea {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+.dual-form-grid input:focus,
+.dual-form-grid textarea:focus {
+  border-color: var(--gold-rich);
+  background: #fffdf9;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, .2);
+  transform: translateY(-1px);
+}
+
+/* CountUp Ticker Pulse */
+.countup-num {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
+@media (max-width: 960px) {
+  .compact-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-hero-visual {
+    display: none;
+  }
+
+  .services-4-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .service-strip-col {
+    border-right: none;
+  }
+
+  .main-2col-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .compact-stats-strip {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .compact-gallery-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .gallery-title-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .bottom-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bottom-left-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .compact-container {
+    width: min(100% - 28px, 520px);
+  }
+
+  .compact-hero-section {
+    padding: 18px 0 32px;
+  }
+
+  .compact-hero-h1 {
+    font-size: 36px;
+  }
+
+  .services-4-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dual-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .compact-gallery-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
