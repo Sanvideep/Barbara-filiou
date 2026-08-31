@@ -332,7 +332,6 @@ button {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -344,7 +343,7 @@ button {
 .hero-poster-frame {
   position: relative;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -354,10 +353,10 @@ button {
 
 .hero-poster-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   max-height: 100vh;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -367,24 +366,24 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 160px;
+  height: 18%;
+  max-height: 140px;
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(36, 12, 20, 0.2) 25%,
-    rgba(36, 12, 20, 0.7) 65%,
-    rgba(36, 12, 20, 0.96) 90%,
+    rgba(36, 12, 20, 0.25) 30%,
+    rgba(36, 12, 20, 0.8) 75%,
     #240c14 100%
   );
   pointer-events: none;
   z-index: 4;
 }
 
-/* Floating Hero Action Bar positioned directly on top of the heart */
+/* Floating Hero Action Bar positioned directly on top of the heart across all screen sizes */
 .hero-poster-actions {
   position: absolute;
-  bottom: 28px;
-  left: 29.5%;
+  bottom: 5.6%;
+  left: 30.5%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
@@ -397,9 +396,9 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 13px 30px;
-  font-size: 13px;
+  gap: 8px;
+  padding: clamp(6px, 1.2vw, 14px) clamp(12px, 2.2vw, 32px);
+  font-size: clamp(9px, 1.05vw, 13.5px);
   letter-spacing: 0.12em;
   font-weight: 700;
   border-radius: 6px;
@@ -410,6 +409,8 @@ button {
 
 .hero-primary-cta .cta-icon {
   transition: transform 0.25s ease;
+  width: clamp(10px, 1.2vw, 18px);
+  height: clamp(10px, 1.2vw, 18px);
 }
 
 .hero-primary-cta:hover .cta-icon {
@@ -417,15 +418,33 @@ button {
 }
 
 @media (max-width: 900px) {
+  .vintage-letter-hero {
+    min-height: unset;
+    height: auto;
+  }
+  .hero-poster-img {
+    width: 100%;
+    height: auto;
+    max-height: unset;
+    object-fit: contain;
+  }
   .hero-poster-actions {
-    left: 50%;
-    bottom: 22px;
-    width: min(90vw, 340px);
+    bottom: 5.5%;
+    left: 30.5%;
   }
   .hero-primary-cta {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 12px;
+    padding: 7px 15px;
+    font-size: 10px;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-primary-cta {
+    padding: 4.5px 9px;
+    font-size: 8px;
+    letter-spacing: 0.07em;
+    gap: 3px;
   }
 }
 
